@@ -2,9 +2,11 @@ name: CI — Build & Test
 
 on:
   push:
-    branches: [" master "]        # triggers on every push to any branch
+    branches: 
+      -'**'     # triggers on every push to any branch
   pull_request:
-    branches: [" master "]        # triggers on every pull request
+    branches: 
+      -'**'        # triggers on every pull request
 
 jobs:
   build-and-test:
