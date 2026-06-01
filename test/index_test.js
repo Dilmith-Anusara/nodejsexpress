@@ -17,4 +17,14 @@ describe('/GET', () => {
                 done();
             });
     });
+
+    it('GET /health should return status OK', (done) => {
+        chai.request(`http://localhost:${config.port}`)
+            .get('/health')
+            .end((err, res) => {
+                res.should.have.status(200);
+                res.body.should.have.property('status').eql('OK');
+                done();
+            });
+    });
 });

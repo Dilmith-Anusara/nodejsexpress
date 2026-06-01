@@ -8,4 +8,8 @@ router.get('/', (req, res) => {
   });
 });
 
+router.get('/health', function(req, res) {
+  res.json({ status: 'OK', uptime: process.uptime() });
+});
+
 module.exports = router;

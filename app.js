@@ -1,7 +1,7 @@
 const config = require('./config');
 const express = require('express');
 const path = require('path');
-const exphbs = require('express-handlebars');
+const { engine } = require('express-handlebars');
 
 const index = require('./routes/index');
 const who = require('./routes/who');
@@ -10,7 +10,7 @@ const contact = require('./routes/contact');
 const app = express();
 
 app.set('views', path.join(__dirname, 'views'));
-app.engine('handlebars', exphbs({defaultLayout: 'main'}));
+app.engine('handlebars', engine({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 app.set('port', config.port);
 
